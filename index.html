@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Olmo</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+    <!-- Подключаем Sailors как кастомный шрифт (обнови путь позже) -->
+    <style>
+        @font-face {
+            font-family: 'Sailors';
+            src: url('/fonts/sailors-webfont.ttf') format('truetype');
+            /* заменить на актуальную ссылку */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Sailors', sans-serif;
+            background-color: #111;
+            color: #f0f0f0;
+        }
+
+        header {
+            position: fixed;
+            /* left: 0; */
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            align-items: center;
+            z-index: 1000
+        }
+
+        .wrapper {
+            /* background: rgb(2, 46, 2); */
+        }
+
+        #nav-links {
+            display: flex;
+            position: fixed;
+            gap: 1rem;
+            flex: 1;
+            justify-content: right;
+        }
+
+        #burger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            position: absolute;
+            right: 3rem;
+            top: 1rem;
+        }
+
+        #burger .bar {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            border-radius: 5px;
+        }
+
+        header>div {
+            font-family: 'Sailors', cursive;
+            font-size: 1.5rem;
+            white-space: nowrap;
+        }
+
+        header nav {
+            display: flex;
+            flex-wrap: wrap;
+            right: 3rem;
+            gap: 1rem;
+            flex: 1;
+            justify-content: right;
+            overflow-x: auto;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1rem;
+            white-space: nowrap;
+            transition: color 0.3s;
+        }
+
+        header nav a:hover {
+            color: #1db954;
+            /* Spotify green */
+        }
+
+        section {
+            padding: 100px 20px 60px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-image: url('./images/cover.png');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .hero a {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 1rem 2rem;
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-family: 'Sailors', cursive;
+            border: 2px solid white;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .hero a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: scale(1.05);
+        }
+
+
+        .shows {
+            background-image: url('./images/dark_cover.png');
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+        }
+
+        h2 {
+            font-family: 'Sailors', cursive;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            #nav-links {
+                display: none;
+                width: 100%;
+                justify-content: center;
+            }
+
+            #burger {
+                display: flex;
+            }
+
+            #nav-links.active {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+                width: 100%;
+                background-color: rgba(0, 0, 0, 0.7);
+                padding: 1rem;
+                position: absolute;
+                top: 70px;
+                left: 0;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div style="font-size: 1.5rem;">Olmo</div>
+        <nav id="nav-links">
+            <a href="#bio">Bio</a>
+            <a href="#shows">Shows</a>
+            <a href="#sights">Sights</a>
+        </nav>
+        <div id="burger" class="burger">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+    </header>
+
+    <div class="wrapper">
+        <section class="hero" id="home">
+            <a href="https://open.spotify.com/artist/4kPCU0qfyYZDwazanPg52Q?si=Lj1meDPWT4CF5kUn085bvA"
+                target="_blank">Listen to Break Away on Spotify</a>
+        </section>
+
+        <section class="bio" id="bio">
+            <h2>Bio</h2>
+            <p>
+                Olmo (Olmo van der Mast, 1995) is a singer-songwriter from Delft (The Netherlands). His songs
+                range from personal stories to protest anthems. Influenced by artists like Glen Hansard,
+                Jonathan Jeremiah, and Tom Waits, Olmo&#39;s music blends elements of pop, rock, and blues.
+                In 2014, Olmo emerged as a promising talent by winning the first edition of Young Quite Quiet, a
+                contest for young singer-songwriters. Following his 2014 EP, Through This Time, Break Away
+                marks his first full-length album, showcasing a mix of intimate acoustic pieces and vibrant blues
+                rock.
+            </p>
+        </section>
+
+
+        <section class="shows" id="shows">
+            <h2>Shows</h2>
+            <p>Coming soon...</p>
+        </section>
+
+        <section class="sights" id="sights">
+            <h2>Sights</h2>
+            <p>Coming soon...</p>
+        </section>
+
+
+    </div>
+
+
+    <script>
+        const burger = document.getElementById('burger');
+        const navLinks = document.getElementById('nav-links');
+
+        burger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+</body>
+
+</html>

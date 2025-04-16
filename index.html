@@ -21,7 +21,7 @@
         body {
             margin: 0;
             font-family: 'Sailors', regular sans-serif;
-            background-color: #111;
+            background-color: #042e1a;
             color: #f0f0f0;
         }
 
@@ -69,11 +69,11 @@
             border-radius: 5px;
         }
 
-        header>div {
+        /* header>div {
             font-family: 'Sailors', regular;
             font-size: 1.5rem;
             white-space: nowrap;
-        }
+        } */
 
         header nav {
             display: flex;
@@ -105,7 +105,7 @@
         }
 
         .hero {
-            /* position: relative; */
+            position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -117,16 +117,24 @@
             background-repeat: no-repeat;
         }
 
-        .hero a {
-            background: rgba(0, 0, 0, 0.6);
+        .album-link {
+            position: absolute;
+            top: 56%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(3, 122, 87, 0.815);
             padding: 1rem 2rem;
             color: #fff;
             text-decoration: none;
             font-size: 1.2rem;
             font-family: 'Sailors', regular;
-            ;
             border: 2px solid white;
             transition: background 0.3s, transform 0.2s;
+        }
+
+        .hero a.album-link:hover {
+            background: rgba(3, 163, 123, 0.925);
+            transform: translate(-50%, -50%) scale(1.05);
         }
 
         .hero a:hover {
@@ -139,13 +147,80 @@
             object-fit: cover;
         }
 
+        .bio {
+            display: grid;
+            grid-template-columns: minmax(auto, 500px) minmax(auto, 800px);
+            grid-template-areas:
+                "bio-image bio-text";
+            column-gap: 40px;
+            justify-content: center;
+        }
+
+        .bio-image {
+            width: 100%;
+            grid-area: bio-image;
+            border-radius: 15px;
+        }
+
+        .bio-image:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .bio-text {
+            display: flex;
+            flex-direction: column;
+            gap: 26px;
+            grid-area: bio-text;
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 29.34px;
+            margin: 0;
+        }
+
+        .bio-title .bio-paragraph {
+            font-size: 2rem;
+            font-weight: 400;
+            line-height: 29px;
+        }
 
         .shows {
-            background-image: url('./images/dark_cover.png');
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
-            height: 100vh;
+
+        }
+
+        .shows-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1000px;
+            flex-wrap: wrap;
+            justify-content: center;
+            text-align: left;
+        }
+
+        .shows-title {
+            font-family: 'Sailors', regular;
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .shows-text-block {
+            max-width: 500px;
+        }
+
+        .shows-text {
+            font-family: 'Sailors', regular;
+            font-size: 1.2rem;
+            color: white;
         }
 
         h2 {
@@ -159,7 +234,6 @@
         }
 
         #sights {
-            background-color: #222;
             /* Можно изменить под фоновый стиль */
             color: white;
             padding: 60px 20px;
@@ -178,7 +252,7 @@
             /* Используем CSS Grid */
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             /* Автоматическое распределение колонок */
-            gap: 15px;
+            gap: 35px;
             /* Расстояние между изображениями */
             margin-top: 20px;
         }
@@ -215,18 +289,22 @@
             #nav-links.active {
                 display: flex;
                 flex-direction: column;
-                gap: 1rem;
                 width: 100%;
-                background-color: rgba(0, 0, 0, 0.7);
+                background-color: rgba(9, 102, 71, 0.7);
                 padding: 1rem;
                 position: absolute;
-                top: 65px;
+                top: 59px;
                 left: 0;
             }
 
             header {
                 flex-direction: column;
                 align-items: center;
+            }
+
+            .album-link {
+                font-size: 1.2rem;
+                padding: 0.75rem 1.5rem;
             }
 
             .hero,
@@ -242,6 +320,41 @@
                 height: auto;
             }
 
+            .bio {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+
+            .bio-text {
+                font-size: 16px;
+                line-height: 26px;
+                width: 100%;
+                max-width: 100%;
+                padding: 0 16px;
+                box-sizing: border-box;
+            }
+
+            .bio-image {
+                width: 100%;
+                max-width: 100%;
+                padding: 0 16px;
+                box-sizing: border-box;
+            }
+
+        }
+
+        @media (max-width: 480px) {
+            .album-link {
+                font-size: 1rem;
+                padding: 0.6rem 1rem;
+            }
+
+            .bio-text {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
         }
     </style>
 </head>
@@ -250,7 +363,7 @@
     <header>
         <div style="font-size: 1.5rem;">Olmo</div>
         <nav id="nav-links">
-            <a href="#bio">Bio</a>
+            <a href="#about">Bio</a>
             <a href="#shows">Shows</a>
             <a href="#sights">Sights</a>
         </nav>
@@ -264,39 +377,49 @@
     <div class="wrapper">
         <section class="hero" id="home">
             <img src="./images/cover.png" alt="album_cover" class="cover">
-            <button type="button" class="album-link"
-                href="https://open.spotify.com/artist/4kPCU0qfyYZDwazanPg52Q?si=Lj1meDPWT4CF5kUn085bvA"
-                target="_blank">Listen to Break Away on Spotify</button>
+            <a class="album-link" href="https://open.spotify.com/album/7GhmW7YR2e3A9QASk4xm1R?si=1h5rcT9cTny2Nf96Lu9PDw"
+                target="_blank">Listen to Break Away on Spotify</a>
         </section>
 
-        <section class="bio" id="bio">
-            <h2>Bio</h2>
-            <p>
-                Olmo (Olmo van der Mast, 1995) is a singer-songwriter from Delft (The Netherlands). His songs
-                range from personal stories to protest anthems. Influenced by artists like Glen Hansard,
-                Jonathan Jeremiah, and Tom Waits, Olmo&#39;s music blends elements of pop, rock, and blues.
-                In 2014, Olmo emerged as a promising talent by winning the first edition of Young Quite Quiet, a
-                contest for young singer-songwriters. Following his 2014 EP, Through This Time, Break Away
-                marks his first full-length album, showcasing a mix of intimate acoustic pieces and vibrant blues
-                rock.
-            </p>
+        <section class="bio" id="about">
+            <img src="images/bioimg.jpg" class="bio-image" alt="bio-pic">
+            <div class="bio-text">
+                <h2 class="bio-title">About Olmo</h2>
+                <p class="bio-paragraph">
+                    Olmo (Olmo van der Mast, 1995) is a singer-songwriter from Delft (The Netherlands). His songs
+                    range from personal stories to protest anthems. Influenced by artists like Glen Hansard,
+                    Jonathan Jeremiah, and Tom Waits, Olmo&#39;s music blends elements of pop, rock, and blues.</p>
+                <p>
+                    In 2014, Olmo emerged as a promising talent by winning the first edition of Young Quite Quiet, a
+                    contest for young singer-songwriters. Following his 2014 EP, Through This Time, Break Away
+                    marks his first full-length album, showcasing a mix of intimate acoustic pieces and vibrant blues
+                    rock.
+                </p>
+            </div>
         </section>
 
 
         <section class="shows" id="shows">
-            <h2>Shows</h2>
-            <p>Coming soon...</p>
+            <div class="shows-content">
+                <img src="images/dark_cover.png" alt="album_cover" class="cover">
+                <div class="shows-text-block">
+                    <h2 class="shows-title">Shows</h2>
+                    <p class="shows-text">Coming soon...</p>
+                </div>
+
+            </div>
+
         </section>
 
         <section class="sights" id="sights">
             <h2>Sights</h2>
             <div class="gallery">
-                <img src="images/photo1.jpg" alt="Photo 1" />
-                <img src="images/photo2.jpg" alt="Photo 2" />
-                <img src="images/photo3.jpg" alt="Photo 3" />
-                <img src="images/photo4.jpg" alt="Photo 4" />
-                <img src="images/photo5.jpg" alt="Photo 5" />
-                <img src="images/photo6.jpg" alt="Photo 6" />
+                <img src="images/concert.jpeg" alt="Photo 1" />
+                <img src="images/concert2.jpeg" alt="Photo 2" />
+                <img src="images/concert3.jpeg" alt="Photo 3" />
+                <img src="images/concert7.jpeg" alt="Photo 4" />
+                <img src="images/concert5.jpeg" alt="Photo 5" />
+                <img src="images/concert6.jpeg" alt="Photo 6" />
             </div>
         </section>
 

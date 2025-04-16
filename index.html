@@ -9,7 +9,7 @@
     <!-- Подключаем Sailors как кастомный шрифт (обнови путь позже) -->
     <style>
         @font-face {
-            font-family: 'Sailors';
+            font-family: 'Sailors', regular;
             src: url('/fonts/sailors-webfont.ttf') format('truetype');
             /* заменить на актуальную ссылку */
         }
@@ -20,9 +20,14 @@
 
         body {
             margin: 0;
-            font-family: 'Sailors', sans-serif;
+            font-family: 'Sailors', regular sans-serif;
             background-color: #111;
             color: #f0f0f0;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
         }
 
         header {
@@ -65,7 +70,7 @@
         }
 
         header>div {
-            font-family: 'Sailors', cursive;
+            font-family: 'Sailors', regular;
             font-size: 1.5rem;
             white-space: nowrap;
         }
@@ -118,7 +123,8 @@
             color: #fff;
             text-decoration: none;
             font-size: 1.2rem;
-            font-family: 'Sailors', cursive;
+            font-family: 'Sailors', regular;
+            ;
             border: 2px solid white;
             transition: background 0.3s, transform 0.2s;
         }
@@ -143,7 +149,7 @@
         }
 
         h2 {
-            font-family: 'Sailors', cursive;
+            font-family: 'Sailors', regular;
             font-size: 2rem;
             margin-bottom: 1rem;
         }
@@ -161,7 +167,8 @@
         }
 
         #sights h2 {
-            font-family: 'Sailors', cursive;
+            font-family: 'Sailors', regular;
+            ;
             font-size: 2rem;
             margin-bottom: 20px;
         }
@@ -257,9 +264,9 @@
     <div class="wrapper">
         <section class="hero" id="home">
             <img src="./images/cover.png" alt="album_cover" class="cover">
-            <a class="album-link"
+            <button type="button" class="album-link"
                 href="https://open.spotify.com/artist/4kPCU0qfyYZDwazanPg52Q?si=Lj1meDPWT4CF5kUn085bvA"
-                target="_blank">Listen to Break Away on Spotify</a>
+                target="_blank">Listen to Break Away on Spotify</button>
         </section>
 
         <section class="bio" id="bio">

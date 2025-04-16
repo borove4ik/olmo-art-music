@@ -39,10 +39,6 @@
             z-index: 1000
         }
 
-        .wrapper {
-            /* background: rgb(2, 46, 2); */
-        }
-
         #nav-links {
             display: flex;
             position: fixed;
@@ -104,13 +100,13 @@
         }
 
         .hero {
-            position: relative;
-            height: 100vh;
+            /* position: relative; */
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background-image: url('./images/cover.png');
+            /* background-image: url('./images/cover.png'); */
             background-position: center;
             background-size: cover;
             background-repeat: no-repeat;
@@ -132,6 +128,11 @@
             transform: scale(1.05);
         }
 
+        .cover {
+            max-width: 100%;
+            object-fit: cover;
+        }
+
 
         .shows {
             background-image: url('./images/dark_cover.png');
@@ -149,6 +150,48 @@
 
         p {
             line-height: 1.6;
+        }
+
+        #sights {
+            background-color: #222;
+            /* Можно изменить под фоновый стиль */
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        #sights h2 {
+            font-family: 'Sailors', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .gallery {
+            display: grid;
+            /* Используем CSS Grid */
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            /* Автоматическое распределение колонок */
+            gap: 15px;
+            /* Расстояние между изображениями */
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            /* Изображение растягивается по ширине контейнера */
+            height: auto;
+            /* Сохраняем пропорции изображения */
+            border-radius: 8px;
+            /* Скругленные углы изображений */
+            object-fit: cover;
+            /* Обрезка изображений по пропорциям */
+            transition: transform 0.3s ease-in-out;
+            /* Плавный эффект при наведении */
+        }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            /* Увеличиваем изображение при наведении */
         }
 
         @media (max-width: 768px) {
@@ -170,7 +213,7 @@
                 background-color: rgba(0, 0, 0, 0.7);
                 padding: 1rem;
                 position: absolute;
-                top: 70px;
+                top: 65px;
                 left: 0;
             }
 
@@ -178,6 +221,20 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            .hero,
+            .shows {
+                background-size: contain;
+                background-repeat: no-repeat;
+                background-position: center top;
+            }
+
+            .hero {
+                padding-top: 50px;
+                padding-bottom: 50px;
+                height: auto;
+            }
+
         }
     </style>
 </head>
@@ -199,7 +256,9 @@
 
     <div class="wrapper">
         <section class="hero" id="home">
-            <a href="https://open.spotify.com/artist/4kPCU0qfyYZDwazanPg52Q?si=Lj1meDPWT4CF5kUn085bvA"
+            <img src="./images/cover.png" alt="album_cover" class="cover">
+            <a class="album-link"
+                href="https://open.spotify.com/artist/4kPCU0qfyYZDwazanPg52Q?si=Lj1meDPWT4CF5kUn085bvA"
                 target="_blank">Listen to Break Away on Spotify</a>
         </section>
 
@@ -224,7 +283,14 @@
 
         <section class="sights" id="sights">
             <h2>Sights</h2>
-            <p>Coming soon...</p>
+            <div class="gallery">
+                <img src="images/photo1.jpg" alt="Photo 1" />
+                <img src="images/photo2.jpg" alt="Photo 2" />
+                <img src="images/photo3.jpg" alt="Photo 3" />
+                <img src="images/photo4.jpg" alt="Photo 4" />
+                <img src="images/photo5.jpg" alt="Photo 5" />
+                <img src="images/photo6.jpg" alt="Photo 6" />
+            </div>
         </section>
 
 

@@ -130,30 +130,22 @@
 
         .album-link {
             position: absolute;
-            top: 50%;
+            top: 77%;
             left: 50%;
             transform: translate(-50%, -50%);
-            /* padding: 1rem 2rem; */
             width: 18vw;
-            transition: transform 0.3s ease;
+            /* Будет зависеть от ширины окна */
             max-width: 200px;
+            /* Максимальный размер */
             min-width: 100px;
+            /* Минимальный размер */
+            z-index: 10;
+            /* Чтобы быть поверх видео */
+            transition: transform 0.3s ease;
         }
 
-        .album-link img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-
-        .lead a.album-link:hover {
-            background: rgba(3, 163, 123, 0.925);
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-
-        .lead a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.05);
+        .album-link:hover {
+            transform: translate(-50%, -50%) scale(1.1);
         }
 
         .cover {
@@ -386,10 +378,7 @@
                 align-items: center;
             }
 
-            .album-link {
-                font-size: 1.2rem;
-                padding: 0.75rem 1.5rem;
-            }
+
 
             /* .lead,
             .shows {
@@ -430,10 +419,6 @@
         }
 
         @media (max-width: 480px) {
-            .album-link {
-                font-size: 1rem;
-                padding: 0.6rem 1rem;
-            }
 
             .bio-text {
                 padding-left: 16px;
@@ -459,9 +444,15 @@
     </header>
 
     <section class="lead" id="home">
+        <!-- Ссылка сохраняет все позиционирование видео благодаря сохранению класса и стилей -->
         <video autoplay muted loop playsinline class="background-video" style="cursor: pointer;">
             <source src="./images/Olmo_BreakAway_Vierkant_20Sec_20250318.mp4" type="video/mp4" />
         </video>
+        <a href="https://open.spotify.com/album/7GhmW7YR2e3A9QASk4xm1R?si=9cuRK5ziRWehbIiIgThsOQ" target="_blank"
+            class="album-link">
+            <img src="./images/vinyl_album.svg" alt="Play on Spotify"
+                style="width: 100%; height: auto; transition: transform 0.3s ease;" />
+        </a>
     </section>
 
     <section class="bio" id="about">
@@ -521,9 +512,6 @@
             navLinks.classList.toggle('active');
         });
 
-        document.getElementById('background-video').addEventListener('click', function () {
-            window.open('https://open.spotify.com/album/7GhmW7YR2e3A9QASk4xm1R?si=RMTUPR53SdaavDtrsQqu9Q', '_blank');
-        });
     </script>
 </body>
 

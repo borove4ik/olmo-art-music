@@ -104,47 +104,62 @@
             margin: 0 auto;
         }
 
-        .hero {
+        .lead {
+            box-sizing: border-box;
             position: relative;
             min-height: 100vh;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            /* background-image: url('./images/cover.png'); */
-            background-position: center;
+            /* background-position: center;
             background-size: cover;
-            background-repeat: no-repeat;
+            background-repeat: no-repeat; */
+        }
+
+        .background-video {
+            position: absolute;
+            max-width: 100%;
+            min-width: 200px;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            top: 0;
+            z-index: -1;
         }
 
         .album-link {
             position: absolute;
-            top: 56%;
+            top: 77%;
             left: 50%;
             transform: translate(-50%, -50%);
-            background: rgba(3, 122, 87, 0.815);
-            padding: 1rem 2rem;
-            color: #fff;
-            text-decoration: none;
-            font-size: 1.2rem;
-            font-family: 'Sailors', regular;
-            border: 2px solid white;
-            transition: background 0.3s, transform 0.2s;
+            width: 18vw;
+            /* Будет зависеть от ширины окна */
+            max-width: 200px;
+            /* Максимальный размер */
+            min-width: 100px;
+            /* Минимальный размер */
+            z-index: 10;
+            /* Чтобы быть поверх видео */
+            transition: transform 0.3s ease;
         }
 
-        .hero a.album-link:hover {
-            background: rgba(3, 163, 123, 0.925);
-            transform: translate(-50%, -50%) scale(1.05);
-        }
-
-        .hero a:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: scale(1.05);
+        .album-link:hover {
+            transform: translate(-50%, -50%) scale(1.1);
         }
 
         .cover {
-            max-width: 100%;
-            object-fit: cover;
+            text-decoration: none;
+            color: #ffff;
+            background-color: rgba(42, 44, 47, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            width: 100%;
+            height: 100%;
+            margin: 0;
         }
 
         .bio {
@@ -185,15 +200,16 @@
         }
 
         .shows {
-            min-height: 100vh;
+            box-sizing: border-box;
             display: flex;
-            align-items: center;
+            flex-direction: column;
             justify-content: center;
-            padding: 60px 20px;
-            background-position: center;
+            align-items: center;
+            background: url(images/dark_cover.png) no-repeat center;
             background-size: cover;
-            background-repeat: no-repeat;
-
+            width: 100%;
+            aspect-ratio: 8 / 5;
+            margin: 0 auto;
         }
 
         .shows-content {
@@ -207,10 +223,12 @@
         }
 
         .shows-title {
-            font-family: 'Sailors', regular;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 1rem;
+            font-weight: 900;
+            font-size: 72px;
+            line-height: 76px;
+            max-width: 540px;
+            margin: 0 auto;
+            text-align: center;
         }
 
         .shows-text-block {
@@ -275,6 +293,64 @@
             /* Увеличиваем изображение при наведении */
         }
 
+        #subscribe {
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 60px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .subscribe-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .subscribe-container h2 {
+            font-family: 'Sailors', regular;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .subscribe-container p {
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .subscribe-form {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .subscribe-form input[type="email"] {
+            padding: 12px 16px;
+            border: none;
+            border-radius: 4px;
+            min-width: 250px;
+            font-size: 1rem;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .subscribe-form button {
+            background-color: #1db954;
+            color: white;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .subscribe-form button:hover {
+            background-color: #17a34a;
+        }
+
+
+
         @media (max-width: 768px) {
             #nav-links {
                 display: none;
@@ -293,7 +369,7 @@
                 background-color: rgba(9, 102, 71, 0.7);
                 padding: 1rem;
                 position: absolute;
-                top: 59px;
+                top: 57px;
                 left: 0;
             }
 
@@ -302,23 +378,20 @@
                 align-items: center;
             }
 
-            .album-link {
-                font-size: 1.2rem;
-                padding: 0.75rem 1.5rem;
-            }
 
-            .hero,
+
+            /* .lead,
             .shows {
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center top;
-            }
+            } */
 
-            .hero {
+            /* .lead {
                 padding-top: 50px;
                 padding-bottom: 50px;
                 height: auto;
-            }
+            } */
 
             .bio {
                 display: flex;
@@ -346,10 +419,6 @@
         }
 
         @media (max-width: 480px) {
-            .album-link {
-                font-size: 1rem;
-                padding: 0.6rem 1rem;
-            }
 
             .bio-text {
                 padding-left: 16px;
@@ -374,57 +443,65 @@
         </div>
     </header>
 
-    <div class="wrapper">
-        <section class="hero" id="home">
-            <img src="./images/cover.png" alt="album_cover" class="cover">
-            <a class="album-link" href="https://open.spotify.com/album/7GhmW7YR2e3A9QASk4xm1R?si=1h5rcT9cTny2Nf96Lu9PDw"
-                target="_blank">Listen to Break Away on Spotify</a>
-        </section>
+    <section class="lead" id="home">
+        <!-- Ссылка сохраняет все позиционирование видео благодаря сохранению класса и стилей -->
+        <video autoplay muted loop playsinline class="background-video" style="cursor: pointer;">
+            <source src="./images/Olmo_BreakAway_Vierkant_20Sec_20250318.mp4" type="video/mp4" />
+        </video>
+        <a href="https://open.spotify.com/album/7GhmW7YR2e3A9QASk4xm1R?si=9cuRK5ziRWehbIiIgThsOQ" target="_blank"
+            class="album-link">
+            <img src="./images/vinyl_album.svg" alt="Play on Spotify"
+                style="width: 100%; height: auto; transition: transform 0.3s ease;" />
+        </a>
+    </section>
 
-        <section class="bio" id="about">
-            <img src="images/bioimg.jpg" class="bio-image" alt="bio-pic">
-            <div class="bio-text">
-                <h2 class="bio-title">About Olmo</h2>
-                <p class="bio-paragraph">
-                    Olmo (Olmo van der Mast, 1995) is a singer-songwriter from Delft (The Netherlands). His songs
-                    range from personal stories to protest anthems. Influenced by artists like Glen Hansard,
-                    Jonathan Jeremiah, and Tom Waits, Olmo&#39;s music blends elements of pop, rock, and blues.</p>
-                <p>
-                    In 2014, Olmo emerged as a promising talent by winning the first edition of Young Quite Quiet, a
-                    contest for young singer-songwriters. Following his 2014 EP, Through This Time, Break Away
-                    marks his first full-length album, showcasing a mix of intimate acoustic pieces and vibrant blues
-                    rock.
-                </p>
-            </div>
-        </section>
-
-
-        <section class="shows" id="shows">
-            <div class="shows-content">
-                <img src="images/dark_cover.png" alt="album_cover" class="cover">
-                <div class="shows-text-block">
-                    <h2 class="shows-title">Shows</h2>
-                    <p class="shows-text">Coming soon...</p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="sights" id="sights">
-            <h2>Sights</h2>
-            <div class="gallery">
-                <img src="images/concert.jpeg" alt="Photo 1" />
-                <img src="images/concert2.jpeg" alt="Photo 2" />
-                <img src="images/concert3.jpeg" alt="Photo 3" />
-                <img src="images/concert7.jpeg" alt="Photo 4" />
-                <img src="images/concert5.jpeg" alt="Photo 5" />
-                <img src="images/concert6.jpeg" alt="Photo 6" />
-            </div>
-        </section>
+    <section class="bio" id="about">
+        <img src="images/bioimg.jpg" class="bio-image" alt="bio-pic">
+        <div class="bio-text">
+            <h2 class="bio-title">About Olmo</h2>
+            <p class="bio-paragraph">
+                Olmo (Olmo van der Mast, 1995) is a singer-songwriter from Delft (The Netherlands). His songs
+                range from personal stories to protest anthems. Influenced by artists like Glen Hansard,
+                Jonathan Jeremiah, and Tom Waits, Olmo&#39;s music blends elements of pop, rock, and blues.</p>
+            <p>
+                In 2014, Olmo emerged as a promising talent by winning the first edition of Young Quite Quiet, a
+                contest for young singer-songwriters. Following his 2014 EP, Through This Time, Break Away
+                marks his first full-length album, showcasing a mix of intimate acoustic pieces and vibrant blues
+                rock.
+            </p>
+        </div>
+    </section>
 
 
-    </div>
+    <section class="shows" id="shows">
+        <h2 class="shows-title">Shows</h2>
+        <p class="shows-text">Coming soon...</p>
+        </a>
+    </section>
+
+    <section class="sights" id="sights">
+        <h2>Sights</h2>
+        <div class="gallery">
+            <img src="images/concert.jpeg" alt="Photo 1" />
+            <img src="images/concert2.jpeg" alt="Photo 2" />
+            <img src="images/concert3.jpeg" alt="Photo 3" />
+            <img src="images/concert7.jpeg" alt="Photo 4" />
+            <img src="images/concert5.jpeg" alt="Photo 5" />
+            <img src="images/concert6.jpeg" alt="Photo 6" />
+        </div>
+    </section>
+
+    <section id="subscribe">
+        <div class="subscribe-container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to get the latest news and releases from Olmo</p>
+            <form class="subscribe-form">
+                <input type="email" placeholder="Enter your email" required />
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
 
 
     <script>
@@ -434,6 +511,7 @@
         burger.addEventListener('click', () => {
             navLinks.classList.toggle('active');
         });
+
     </script>
 </body>
 

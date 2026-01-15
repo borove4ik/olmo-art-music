@@ -22,7 +22,7 @@
             margin: 0;
             font-family: 'Sailors', regular sans-serif;
             background-color: #042e1a;
-            color: #f0f0f0;
+            color: #f1e2d5;
         }
 
         html,
@@ -86,7 +86,7 @@
         }
 
         header nav a {
-            color: white;
+            color: #f1e2d5;
             text-decoration: none;
             font-weight: bold;
             font-size: 1rem;
@@ -106,6 +106,7 @@
 
         .lead {
             box-sizing: border-box;
+            overflow: hidden;
             position: relative;
             min-height: 100vh;
             display: flex;
@@ -119,10 +120,10 @@
 
         .background-video {
             position: absolute;
-            max-width: 100%;
-            min-width: 200px;
+            /* max-width: 100%; */
+            /* min-width: 200px; */
             width: 100%;
-            height: 100%;
+            height: auto;
             object-fit: contain;
             top: 0;
             z-index: -1;
@@ -150,7 +151,7 @@
 
         .cover {
             text-decoration: none;
-            color: #ffff;
+            color: #f1e2d5;
             background-color: rgba(42, 44, 47, 0.3);
             display: flex;
             flex-direction: column;
@@ -199,12 +200,12 @@
             line-height: 29px;
         }
 
-        .shows {
+        .toont {
             box-sizing: border-box;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
+            justify-content: left;
+            align-items: baseline;
             background: url(images/dark_cover.png) no-repeat center;
             background-size: cover;
             width: 100%;
@@ -212,7 +213,7 @@
             margin: 0 auto;
         }
 
-        .shows-content {
+        .toont-content {
             display: flex;
             align-items: center;
             gap: 40px;
@@ -222,23 +223,22 @@
             text-align: left;
         }
 
-        .shows-title {
+        .toont-title {
             font-weight: 900;
-            font-size: 72px;
+            font-size: 2rem;
             line-height: 76px;
             max-width: 540px;
-            margin: 0 auto;
-            text-align: center;
+            text-align: left;
         }
 
-        .shows-text-block {
+        .toont-text-block {
             max-width: 500px;
         }
 
-        .shows-text {
+        .toont-text {
             font-family: 'Sailors', regular;
             font-size: 1.2rem;
-            color: white;
+            color: #f1e2d5;
         }
 
         h2 {
@@ -251,14 +251,14 @@
             line-height: 1.6;
         }
 
-        #sights {
+        #bezienswaardigheden {
             /* Можно изменить под фоновый стиль */
-            color: white;
+            color: #f1e2d5;
             padding: 60px 20px;
             text-align: center;
         }
 
-        #sights h2 {
+        #bezienswaardigheden h2 {
             font-family: 'Sailors', regular;
             ;
             font-size: 2rem;
@@ -297,7 +297,7 @@
             background-color: rgba(255, 255, 255, 0.05);
             padding: 60px 20px;
             text-align: center;
-            color: white;
+            color: #f1e2d5;
         }
 
         .subscribe-container {
@@ -334,7 +334,7 @@
 
         .subscribe-form button {
             background-color: #1db954;
-            color: white;
+            color: #f1e2d5;
             padding: 12px 24px;
             font-size: 1rem;
             border: none;
@@ -381,7 +381,7 @@
 
 
             /* .lead,
-            .shows {
+            .toont {
                 background-size: contain;
                 background-repeat: no-repeat;
                 background-position: center top;
@@ -433,8 +433,8 @@
         <div style="font-size: 1.5rem;">Olmo</div>
         <nav id="nav-links">
             <a href="#about">Bio</a>
-            <a href="#shows">Shows</a>
-            <a href="#sights">Sights</a>
+            <a href="#toont">toont</a>
+            <a href="#bezienswaardigheden">bezienswaardigheden</a>
         </nav>
         <div id="burger" class="burger">
             <div class="bar"></div>
@@ -459,30 +459,37 @@
     <section class="bio" id="about">
         <img src="images/bioimg.jpg" class="bio-image" alt="bio-pic">
         <div class="bio-text">
-            <h2 class="bio-title">About Olmo</h2>
+            <h2 class="bio-title">Bio</h2>
             <p class="bio-paragraph">
-                Olmo (Olmo van der Mast, 1995) is a singer-songwriter from Delft (The Netherlands). His songs
-                range from personal stories to protest anthems. Influenced by artists like Glen Hansard,
-                Jonathan Jeremiah, and Tom Waits, Olmo&#39;s music blends elements of pop, rock, and blues.</p>
+                Olmo (Olmo van der Mast, 1995) is een singer-songwriter uit Delft (Nederland). Zijn liedjes
+                variëren van persoonlijke verhalen tot protestsongs. Olmo&#39;s muziek is beïnvloed door
+                artiesten als Glen Hansard, Jonathan Jeremiah en Tom Waits en mengt elementen van pop,
+                rock en blues.</p>
             <p>
-                In 2014, Olmo emerged as a promising talent by winning the first edition of Young Quite Quiet, a
-                contest for young singer-songwriters. Following his 2014 EP, Through This Time, Break Away
-                marks his first full-length album, showcasing a mix of intimate acoustic pieces and vibrant blues
-                rock.
+                In 2014 ontpopte Olmo zich als veelbelovend talent door de eerste editie van Young Quite
+                Quiet te winnen, een contest voor jonge singer-songwriters. Na zijn EP uit 2014, Through
+                This Time, bracht Olmo in april 2025 zijn debuutalbum uit: Break Away. Break Away is een
+                mix van intieme akoestische stukken en levendige bluesrock. Het album is verkrijgbaar op LP
+                en is te streamen op verschillende platforms waaronder Spotify, Apple Music en Youtube
+                Music.
             </p>
         </div>
     </section>
 
 
-    <section class="shows" id="shows">
-        <h2 class="shows-title">Shows</h2>
-        <p class="shows-text">Coming soon...</p>
+    <section class="toont" id="toont">
+        <h2 class="toont-title">toont</h2>
+        <p class="toont-text">11 april 2025 – Album releaseparty (Rietveld Theater, Delft) <br>
+            6 juni 2025 – Back to Basis (Delft) <br>
+            28 februari 2025 – Gluren bij de Buren (Arnhem) <br>
+            13 september 2025 – GALM (Schiedam)</p>
         </a>
     </section>
 
-    <section class="sights" id="sights">
-        <h2>Sights</h2>
+    <section class="bezienswaardigheden" id="bezienswaardigheden">
+        <h2>bezienswaardigheden</h2>
         <div class="gallery">
+            <img src="images/sightsimg0.jpg" alt="photo 0">
             <img src="images/concert.jpeg" alt="Photo 1" />
             <img src="images/concert2.jpeg" alt="Photo 2" />
             <img src="images/concert3.jpeg" alt="Photo 3" />
